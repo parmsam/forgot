@@ -8,7 +8,10 @@
 
 The goal of forgot is to help you search for that one function you need
 in that one package. This package is based on functions from
-[Rd2roxygen](https://github.com/yihui/Rd2roxygen).
+[Rd2roxygen](https://github.com/yihui/Rd2roxygen). The `forgot()`
+function returns a tibble of section content in R documentation files
+from a specified package (that’s already installed). You can search on
+this tibble and return an interactive HTML table if needed.
 
 ## Installation
 
@@ -23,11 +26,13 @@ devtools::install_github("parmsam/forgot")
 
 This is a basic example which shows you how to solve a common problem:
 
+Create a forgot tibble that has columns for doc sections in package
+functions
+
 ``` r
 library(forgot)
 library(dplyr)
 ## basic example code
-## create a forgot tibble that has the package function doc fields
 functions_in_pkg <- forgot::forgot("stringr")
 functions_in_pkg %>% 
   select(function_name, title, desc) %>%
@@ -43,8 +48,9 @@ functions_in_pkg %>%
 #> 6 str_conv      Specify the encoding of a string                           "\nT…
 ```
 
+Search for a keyword of interest in the forgot tibble
+
 ``` r
-## search for a keyword of interest in the forgot tibble
 forgot::forgot("stringr", keyword = "count")
 #> # A tibble: 5 × 13
 #>   function…¹ title usage desc  value author examp…² name  aliases params keywo…³
@@ -58,8 +64,9 @@ forgot::forgot("stringr", keyword = "count")
 #> #   variable names ¹​function_name, ²​examples, ³​keywords
 ```
 
+Or search for a keyword of interest on only specific fields
+
 ``` r
-## or search for a keyword of interest on only specific fields
 forgot::forgot("stringr", keyword = "count", selected = c("title", "desc"))
 #> # A tibble: 1 × 3
 #>   function_name title                   desc                                    
