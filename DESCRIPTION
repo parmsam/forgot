@@ -1,0 +1,18 @@
+Package: forgot
+Type: Package
+Title: Function Reference Search In Console
+Version: 0.1.0
+Author: Sam Parmar
+Maintainer: Sam Parmar <yourself@somewhere.net>
+Description: Search for that one function you need in that one package
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.3
+Imports: 
+    dplyr,
+    magrittr,
+    purrr,
+    tibble,
+    tidyr,
+    tools
