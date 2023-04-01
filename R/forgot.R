@@ -2,22 +2,52 @@
 #'
 #' @param pkg string with installed R package name
 #' @param formatted boolean should it coerce columns to char, true by default
-#'
+#' @param keyword optional string to filter the dataframe on for any mention of
+#' @param selected optional string vector of columns to search on, null by default
+#' @param interactive optional boolean to get a reactable HTML table
 #' @return tibble with function documentation info
 #' @export
+#' @importFrom tools Rd_db
 #' @importFrom purrr map_df
 #' @importFrom tidyr pivot_wider
+#' @importFrom stringr str_detect
+#' @importFrom stringr fixed
 #' @importFrom dplyr %>%
+#' @importFrom dplyr select
+#' @importFrom dplyr filter
+#' @importFrom dplyr if_any
 #' @examples
 #' forgot::forgot("stringr")
-forgot <- function(pkg, formatted = TRUE){
+forgot <- function(pkg,
+                   formatted = TRUE,
+                   keyword = NULL,
+                   selected = NULL,
+                   interactive = F) {
   db <- tools::Rd_db(package = pkg)
   n <- names(db)
   df <- purrr::map_df(db, parse_rd) %>%
     tidyr::pivot_wider(names_from = name, values_from = value)
-  if(formatted){
+  if (formatted) {
     df <- df %>%
       dplyr::mutate(dplyr::across(dplyr::where(is.list), as.character))
+  }
+  if (!is.null(selected) & is.character(selected)) {
+    if (!("function_name" %in% selected)) {
+      selected <- c("function_name", selected)
+    }
+    df <- df %>%
+      dplyr::select(selected)
+  }
+  if (!is.null(keyword) & is.character(keyword)) {
+    df <- df %>%
+      dplyr::filter(dplyr::if_any(
+        dplyr::everything(),
+        ~ stringr::str_detect(.,
+                              stringr::fixed(keyword, ignore_case = TRUE))
+      ))
+  }
+  if (interactive) {
+    df <- df %>% simple_html_table()
   }
   return(df)
 }
@@ -43,7 +73,8 @@ parse_rd <- function(rd) {
   out$details = reconstruct(untag(rd$details))
   out$section = paste(reconstruct(untag(rd$section[1])),
                       reconstruct(untag(rd$section[-1])), sep = ': ')
-  if (length(out$section) == 0) out$section = NULL
+  if (length(out$section) == 0)
+    out$section = NULL
   out$format = reconstruct(untag(rd$format))
   out$value = reconstruct(untag(rd$value))
   out$note = reconstruct(untag(rd$note))
@@ -67,9 +98,12 @@ parse_rd <- function(rd) {
   arguments = rd$arguments
   arguments = arguments[sapply(arguments, tag) != "TEXT"]
   out$params = unlist(sapply(arguments, function(argument) {
-    if (tag(argument) != '\\item') return(NULL)
+    if (tag(argument) != '\\item')
+      return(NULL)
     paste(if (tag(argument[[1]][[1]]) == "\\dots")
-      "\\dots" else gsub(' +', '', argument[[1]]),
+      "\\dots"
+      else
+        gsub(' +', '', argument[[1]]),
       reconstruct(argument[[2]]))
   }))
 

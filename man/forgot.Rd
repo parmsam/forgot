@@ -4,12 +4,18 @@
 \alias{forgot}
 \title{Retrieve tibble with function documentation for a specified package}
 \usage{
-forgot(pkg, formatted = TRUE)
+forgot(pkg, formatted = TRUE, keyword = NULL, selected = NULL, interactive = F)
 }
 \arguments{
 \item{pkg}{string with installed R package name}
 
 \item{formatted}{boolean should it coerce columns to char, true by default}
+
+\item{keyword}{optional string to filter the dataframe on for any mention of}
+
+\item{selected}{optional string vector of columns to search on, null by default}
+
+\item{interactive}{optional boolean to get a reactable HTML table}
 }
 \value{
 tibble with function documentation info

@@ -37,8 +37,32 @@ This is a basic example which shows you how to solve a common problem:
 library(forgot)
 library(dplyr)
 ## basic example code
+## create a forgot tibble that has the package function doc fields
 functions_in_pkg <- forgot::forgot("stringr")
 functions_in_pkg %>% 
   select(function_name, title, desc) %>%
   head()
 ```
+
+```{r}
+## search for a keyword of interest in the forgot tibble
+forgot::forgot("stringr", keyword = "count")
+```
+
+```{r}
+## or search for a keyword of interest on only specific fields
+forgot::forgot("stringr", keyword = "count", selected = c("title", "desc"))
+```
+
+```{r eval= F}
+## here's how you can get a reactable HTML table that you can search on
+forgot::forgot("stringr", keyword = "count", selected = c("title", "desc"),
+               interactive = T)
+```
+
+## Credits
+
+- Hex icon created using the [hexmake
+  app](https://connect.thinkr.fr/hexmake/) from
+  [ColinFay](https://github.com/ColinFay/hexmake).
+- <a href="https://www.flaticon.com/free-icons/confusion" title="confusion icons">Confusion icons created by Freepik - Flaticon</a>
