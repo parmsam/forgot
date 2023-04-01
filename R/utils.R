@@ -1,12 +1,29 @@
 simple_html_table <- function(data) {
-  reactable::reactable(
-    data,
-    filterable = TRUE,
-    searchable = TRUE,
-    showPageSizeOptions = TRUE,
-    pageSizeOptions = c(4, 8, 12),
-    defaultPageSize = 4,
-    highlight = TRUE
+  htmltools::browsable(
+    htmltools::tagList(
+      htmltools::div(
+        style = "margin-bottom: 0.75rem",
+        htmltools::tags$input(
+          type = "text",
+          placeholder = "Search for keywords",
+          style = "padding: 0.25rem 0.5rem; width: 100%",
+          oninput = "Reactable.setSearch('search-table', this.value)"
+        )
+      ),
+      reactable::reactable(
+        data,
+        bordered = TRUE,
+        filterable = TRUE,
+        showPageSizeOptions = TRUE,
+        pageSizeOptions = c(4, 8, 12),
+        defaultPageSize = 4,
+        highlight = TRUE,
+        defaultColDef = reactable::colDef(minWidth = 120),
+        elementId = "search-table",
+        resizable = TRUE,
+        wrap = FALSE
+      )
+    )
   )
 }
 
