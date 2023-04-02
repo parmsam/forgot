@@ -33,7 +33,7 @@ functions
 library(forgot)
 library(dplyr)
 ## basic example code
-functions_in_pkg <- forgot::forgot("stringr")
+functions_in_pkg <- forgot("stringr")
 functions_in_pkg %>% 
   select(function_name, title, desc) %>%
   head()
@@ -51,7 +51,7 @@ functions_in_pkg %>%
 Search for a keyword of interest in the forgot tibble
 
 ``` r
-forgot::forgot("stringr", keyword = "count")
+forgot("stringr", keyword = "count")
 #> # A tibble: 5 × 13
 #>   function…¹ title usage desc  value author examp…² name  aliases params keywo…³
 #>   <chr>      <chr> <chr> <chr> <chr> <chr>  <chr>   <chr> <chr>   <chr>  <chr>  
@@ -64,19 +64,30 @@ forgot::forgot("stringr", keyword = "count")
 #> #   variable names ¹​function_name, ²​examples, ³​keywords
 ```
 
-Or search for a keyword of interest on only specific fields
+Or search for a keyword of interest only on specific fields
 
 ``` r
-forgot::forgot("stringr", keyword = "count", selected = c("title", "desc"))
+forgot("stringr", keyword = "count", selected = c("title", "desc"))
 #> # A tibble: 1 × 3
 #>   function_name title                   desc                                    
 #>   <chr>         <chr>                   <chr>                                   
 #> 1 str_count     Count number of matches "\nCounts the number of times \\code{pa…
 ```
 
+Or if you want to search across multiple packages
+
 ``` r
-## here's how you can get a reactable HTML table that you can search on
-forgot::forgot("stringr", keyword = "count", selected = c("title", "desc"),
+library(purrr)
+c("stringr", "dplyr") %>%
+  purrr::set_names() %>%
+  map(forgot, keyword = "count")
+```
+
+Alternatively, here’s how you can get a reactable HTML table that you
+can search on
+
+``` r
+forgot("stringr", keyword = "count", selected = c("title", "desc"),
                interactive = T)
 ```
 
