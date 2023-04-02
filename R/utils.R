@@ -1,3 +1,12 @@
+#' Get simple reactable HTML table
+#'
+#' @param data tibble dataset for reactable
+#'
+#' @return reactable HTML object
+#' @export
+#'
+#' @examples
+#' simple_html_table(iris)
 simple_html_table <- function(data) {
   htmltools::browsable(
     htmltools::tagList(
@@ -10,23 +19,50 @@ simple_html_table <- function(data) {
           oninput = "Reactable.setSearch('search-table', this.value)"
         )
       ),
-      reactable::reactable(
-        data,
-        bordered = TRUE,
-        filterable = TRUE,
-        showPageSizeOptions = TRUE,
-        pageSizeOptions = c(4, 8, 12),
-        defaultPageSize = 4,
-        highlight = TRUE,
-        defaultColDef = reactable::colDef(minWidth = 120),
-        elementId = "search-table",
-        resizable = TRUE,
-        wrap = FALSE
-      )
+      simple_reactable_table(data, shiny_vers = T)
     )
   )
 }
 
+#' Get simple reactable table
+#'
+#' @param data tibble with dataset
+#' @param shiny_vers option to return shiny version used in `simple_html_table()`
+#'
+#' @return reactable object
+#' @export
+#'
+#' @examples
+#' simple_reactable_table(iris)
+simple_reactable_table <- function(data, shiny_vers = F) {
+  if(shiny_vers){
+    reactable::reactable(
+      data,
+      bordered = TRUE,
+      filterable = TRUE,
+      showPageSizeOptions = TRUE,
+      pageSizeOptions = c(4, 8, 12),
+      defaultPageSize = 4,
+      highlight = TRUE,
+      defaultColDef = reactable::colDef(minWidth = 120),
+      elementId = "search-table",
+      resizable = TRUE,
+      wrap = FALSE
+    )
+  }
+  reactable::reactable(
+    data,
+    bordered = TRUE,
+    filterable = TRUE,
+    showPageSizeOptions = TRUE,
+    pageSizeOptions = c(4, 8, 12),
+    defaultPageSize = 4,
+    highlight = TRUE,
+    defaultColDef = reactable::colDef(minWidth = 120),
+    resizable = TRUE,
+    wrap = FALSE
+  )
+}
 
 # utility functions form Rd2roxygen package
 # https://github.com/yihui/Rd2roxygen/blob/main/R/utils.R

@@ -1,0 +1,4 @@
+Name: Search package documentation
+Description: Runs forgot() in a mini Shiny app
+Binding: forgotAddin
+Interactive: true
