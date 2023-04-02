@@ -11,7 +11,9 @@ in that one package. This package is based on functions from
 [Rd2roxygen](https://github.com/yihui/Rd2roxygen). The `forgot()`
 function returns a tibble of section content in R documentation files
 from a specified package (that’s already installed). You can search on
-this tibble and return an interactive HTML table if needed.
+this tibble and return an interactive HTML table if needed. There’s also
+a RStudio Addin included that you can use to search package
+documentation in a small Shiny app.
 
 ## Installation
 
