@@ -2,6 +2,7 @@
 
 export("%>%")
 export(forgot)
+export(forgot2)
 export(forgotAddin)
 export(simple_html_table)
 export(simple_reactable_table)

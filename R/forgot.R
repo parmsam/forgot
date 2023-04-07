@@ -18,10 +18,11 @@
 #' @importFrom dplyr if_any
 #' @examples
 #' forgot::forgot("stringr")
+#' forgot::forgot("dplyr", "count")
 forgot <- function(pkg,
-                   formatted = TRUE,
                    keyword = NULL,
                    selected = NULL,
+                   formatted = T,
                    interactive = F) {
   db <- tools::Rd_db(package = pkg)
   n <- names(db)
@@ -42,14 +43,37 @@ forgot <- function(pkg,
     df <- df %>%
       dplyr::filter(dplyr::if_any(
         dplyr::everything(),
-        ~ stringr::str_detect(.,
-                              stringr::fixed(keyword, ignore_case = TRUE))
+        ~stringr::str_detect(.,
+                             stringr::fixed(keyword, ignore_case = TRUE))
       ))
   }
   if (interactive) {
     df <- df %>% simple_html_table()
   }
   return(df)
+}
+
+#' Get forgot tibble with only first three fields populated by default
+#'
+#' @param pkg string with installed R package name
+#' @param keyword optional string to filter the dataframe on for any mention of
+#' @param selected optional string vector of columns to add to search
+#'
+#' @return tibble with function documentation info
+#' @export
+#'
+#' @examples
+#' forgot2("stringr")
+#' forgot2("dplyr", "count")
+forgot2 <- function(pkg,
+                    keyword = NULL,
+                    selected = c()
+                    ){
+  selected_fields <- c("function_name", "title", selected)
+  forgot(pkg,
+         keyword = keyword,
+         selected = selected_fields,
+         interactive = F)
 }
 
 # parse_rd is based on Rd2roxygen::parse_file()
