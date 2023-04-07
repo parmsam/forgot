@@ -11,6 +11,7 @@ LazyData: true
 RoxygenNote: 7.2.3
 Imports: 
     dplyr,
+    fontawesome,
     htmltools,
     keys,
     magrittr,
