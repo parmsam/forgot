@@ -2,7 +2,7 @@
 % Please edit documentation in R/forgot.R
 \name{forgot2}
 \alias{forgot2}
-\title{Get forgot tibble with only first three fields populated by default}
+\title{Get forgot tibble with only first two fields populated by default}
 \usage{
 forgot2(pkg, keyword = NULL, selected = c())
 }
@@ -11,13 +11,13 @@ forgot2(pkg, keyword = NULL, selected = c())
 
 \item{keyword}{optional string to filter the dataframe on for any mention of}
 
-\item{selected}{optional string vector of columns to add to search}
+\item{selected}{optional string vector of columns to add on to search}
 }
 \value{
 tibble with function documentation info
 }
 \description{
-Get forgot tibble with only first three fields populated by default
+Get forgot tibble with only first two fields populated by default
 }
 \examples{
 forgot2("stringr")

@@ -53,11 +53,11 @@ forgot <- function(pkg,
   return(df)
 }
 
-#' Get forgot tibble with only first three fields populated by default
+#' Get forgot tibble with only first two fields populated by default
 #'
 #' @param pkg string with installed R package name
 #' @param keyword optional string to filter the dataframe on for any mention of
-#' @param selected optional string vector of columns to add to search
+#' @param selected optional string vector of columns to add on to search
 #'
 #' @return tibble with function documentation info
 #' @export
