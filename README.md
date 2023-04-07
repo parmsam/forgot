@@ -13,7 +13,9 @@ function returns a tibble of section content in R documentation files
 from a specified package (that’s already installed). You can search on
 this tibble and return an interactive HTML table if needed. There’s also
 a RStudio Addin included that you can use to search package
-documentation in a small Shiny app.
+documentation in a small Shiny app. `forgot2()` is for more casual use
+and will return a simple version of the forgot tibble with just the
+first two columns by default.
 
 ## Installation
 
