@@ -29,7 +29,7 @@ forgot <- function(pkg,
     tidyr::pivot_wider(names_from = name, values_from = value)
   if (formatted) {
     df <- df %>%
-      dplyr::mutate(dplyr::across(dplyr::where(is.list), as.character))
+      dplyr::mutate(dplyr::across(tidyselect::where(is.list), as.character))
   }
   if (!is.null(selected) & is.character(selected)) {
     if (!("function_name" %in% selected)) {
