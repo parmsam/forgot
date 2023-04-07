@@ -7,11 +7,12 @@
 #' @importFrom miniUI miniPage
 #'
 #' @examples
+#' \dontrun{
 #' forgotAddin("dplyr")
-#'
-#' @noRd
+#' }
+#' @export
 forgotAddin <- function(selected_pkg = NULL) {
-  installed_pkgs <- as.vector(installed.packages()[, 1])
+  installed_pkgs <- as.vector(utils::installed.packages()[, 1])
   doc_fields <- c("function_name","title", "usage",
                   "desc", "value", "author",
                   "examples", "name", "aliases",
@@ -27,6 +28,8 @@ forgotAddin <- function(selected_pkg = NULL) {
                     verify_fa = FALSE)
       )
     ),
+    keys::useKeys(),
+    keys::keysInput("keys", c("enter")),
     miniUI::miniContentPanel(
       # Define layout, inputs, outputs
       shiny::selectInput(
@@ -56,7 +59,7 @@ forgotAddin <- function(selected_pkg = NULL) {
   server <- function(input, output, session) {
     react_tbl <- shiny::reactiveVal(NULL)
     # Define reactive expressions, outputs, etc.
-    shiny::observeEvent(input$search, {
+    shiny::observeEvent(input$search | input$keys == "enter", {
       if (input$keyword != "") {
         search_tbl <- forgot(input$pkg_select,
                              keyword = input$keyword,

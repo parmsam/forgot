@@ -92,7 +92,7 @@ parse_rd <- function(rd) {
   if (identical(out$aliases, out$name)) {
     out$aliases = NULL
   }
-  out$keywords = unlist(lapply(rd[names(rd) == "keyword"], head, 1))
+  out$keywords = unlist(lapply(rd[names(rd) == "keyword"], utils::head, 1))
 
   # Pull apart arguments
   arguments = rd$arguments

@@ -2,6 +2,7 @@
 
 export("%>%")
 export(forgot)
+export(forgotAddin)
 export(simple_html_table)
 export(simple_reactable_table)
 importFrom(dplyr,"%>%")
