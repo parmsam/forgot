@@ -20,6 +20,8 @@ knitr::opts_chunk$set(
 
 The goal of forgot is to help you search for that one function you need in that one package. This package is based on functions from [Rd2roxygen](https://github.com/yihui/Rd2roxygen). The `forgot()` function returns a tibble of section content in R documentation files from a specified package (that's  already installed). You can search on this tibble and return an interactive HTML table if needed. There's also a RStudio Addin included that you can use to search package documentation in a small Shiny app. `forgot2()` is for more casual use and will return a simple version of the forgot tibble with just the first two columns by default.
 
+This package provides an alternative to function search without using the help system (`?help()`) in the RStudio IDE. You should still use that though for learning purposes.
+
 ## Installation
 
 You can install the development version of forgot like so:
@@ -53,6 +55,7 @@ Or search for a keyword of interest only on specific fields
 ```{r}
 forgot("stringr", keyword = "count", selected = c("title", "desc"))
 ```
+
 If you want to search across multiple packages, here's an example of how you can use purrr to help with that
 ```{r eval = FALSE}
 library(purrr)

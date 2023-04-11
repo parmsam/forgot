@@ -15,9 +15,11 @@ this tibble and return an interactive HTML table if needed. There’s also
 a RStudio Addin included that you can use to search package
 documentation in a small Shiny app. `forgot2()` is for more casual use
 and will return a simple version of the forgot tibble with just the
-first two columns by default. 
+first two columns by default.
 
-This package provides an alternative to function search without using the help system (`?help()`) in the RStudio IDE. You should still use that though for learning purposes.
+This package provides an alternative to function search without using
+the help system (`?help()`) in the RStudio IDE. You should still use
+that though for learning purposes.
 
 ## Installation
 
