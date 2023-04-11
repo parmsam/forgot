@@ -80,17 +80,19 @@ forgot("stringr", keyword = "count", selected = c("title", "desc"))
 #> 1 str_count     Count number of matches "\nCounts the number of times \\code{pa…
 ```
 
-Or if you want to search across multiple packages
+If you want to search across multiple packages, here’s an example of how
+you can use purrr to help with that
 
 ``` r
 library(purrr)
 c("stringr", "dplyr") %>%
   purrr::set_names() %>%
-  map(forgot, keyword = "count")
+  map(forgot, keyword = "count") %>%
+  list_rbind(names_to = "Package")
 ```
 
-Alternatively, here’s how you can get a reactable HTML table that you
-can search on
+Lastly, here’s how you can get a reactable HTML table that you can
+search on
 
 ``` r
 forgot("stringr", keyword = "count", selected = c("title", "desc"),
