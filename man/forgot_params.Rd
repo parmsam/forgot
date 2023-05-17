@@ -4,12 +4,14 @@
 \alias{forgot_params}
 \title{Print parameters for an R function of interest in console}
 \usage{
-forgot_params(pkg, function_name)
+forgot_params(pkg, function_name, write = FALSE)
 }
 \arguments{
 \item{pkg}{string with installed R package name}
 
 \item{function_name}{function name in R package}
+
+\item{write}{logical write to RStudio rmd file, FALSE by default}
 }
 \description{
 Print parameters for an R function of interest in console

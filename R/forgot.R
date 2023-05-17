@@ -169,13 +169,15 @@ forgot_fx <- function(pkg, function_name,
 #'
 #' @param pkg string with installed R package name
 #' @param function_name function name in R package
+#' @param write logical write to RStudio rmd file, FALSE by default
 #'
 #' @return NULL
 #' @export
 #'
 #' @examples
 #' forgot_usg("dplyr", "count")
-forgot_usg <- function(pkg, function_name){
+forgot_usg <- function(pkg, function_name,
+                       write = FALSE){
   f <- forgot_fx(
             pkg = {{pkg}}, {{function_name}},
             field = "usage",
@@ -188,18 +190,24 @@ forgot_usg <- function(pkg, function_name){
 #'
 #' @param pkg string with installed R package name
 #' @param function_name function name in R package
+#' @param write logical write to RStudio rmd file, FALSE by default
 #'
 #' @return NULL
 #' @export
 #'
 #' @examples
 #' forgot_exmpls("dplyr", "count")
-forgot_exmpls <- function(pkg, function_name){
+#' forgot_exmpls("dplyr", "count", write = TRUE)
+forgot_exmpls <- function(pkg, function_name,
+                          write = FALSE){
   f <- forgot_fx(
     pkg = {{pkg}}, {{function_name}},
     field = "examples",
     print = FALSE)[[1]]
   cat(f)
+  if(write){
+    new_file_write(f)
+  }
   invisible(f)
 }
 
@@ -207,18 +215,32 @@ forgot_exmpls <- function(pkg, function_name){
 #'
 #' @param pkg string with installed R package name
 #' @param function_name function name in R package
+#' @param write logical write to RStudio rmd file, FALSE by default
 #'
 #' @return NULL
 #' @export
 #'
 #' @examples
 #' forgot_params("dplyr", "count")
-forgot_params <- function(pkg, function_name){
+forgot_params <- function(pkg, function_name,
+                          write = FALSE){
   f <- forgot_fx(
     pkg = {{pkg}}, {{function_name}},
     field = "params",
     print = FALSE)[[1]]
   f <- eval(parse(text = f))
   cat(f, sep = "\n------\n")
+  if(write){
+    new_file_write(f)
+  }
   invisible(f)
+}
+
+#' Create new RStudio Rmarkdown document with content of interest
+#'
+#' @param content vector with text to include in file
+#' @param type type of file to create in RStudio IDE, RMarkdown by default
+#'
+new_file_write <- function(content, type = "rmarkdown"){
+  rstudioapi::documentNew(text = content, type = type)
 }

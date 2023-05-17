@@ -111,6 +111,10 @@ forgot_usage("dplyr", "count")
 forgot_exmpls("dplyr", "count")
 ```
 
+The write logical (see `forgot_exmpls()` documentation for example)
+argument will create a new RStudio document with the roxygen2 field
+content of interest that was cat.
+
 ## Credits
 
 - Hex icon created using the [hexmake

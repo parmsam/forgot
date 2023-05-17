@@ -4,16 +4,19 @@
 \alias{forgot_exmpls}
 \title{Print examples for an R function of interest in console}
 \usage{
-forgot_exmpls(pkg, function_name)
+forgot_exmpls(pkg, function_name, write = FALSE)
 }
 \arguments{
 \item{pkg}{string with installed R package name}
 
 \item{function_name}{function name in R package}
+
+\item{write}{logical write to RStudio rmd file, FALSE by default}
 }
 \description{
 Print examples for an R function of interest in console
 }
 \examples{
 forgot_exmpls("dplyr", "count")
+forgot_exmpls("dplyr", "count", write = TRUE)
 }

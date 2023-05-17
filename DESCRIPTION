@@ -18,6 +18,7 @@ Imports:
     miniUI,
     purrr,
     reactable,
+    rstudioapi,
     shiny,
     stringr,
     tibble,
