@@ -30,9 +30,9 @@ You can install the development version of forgot like so:
 devtools::install_github("parmsam/forgot")
 ```
 
-## Example
+## Examples
 
-This is a basic example which shows you how to solve a common problem:
+This are examples which show you how to solve common problems:
 
 Create a forgot tibble that has columns for doc sections in package
 functions
@@ -61,15 +61,14 @@ Search for a keyword of interest in the forgot tibble
 ``` r
 forgot("stringr", keyword = "count")
 #> # A tibble: 5 × 13
-#>   function…¹ title usage desc  value author examp…² name  aliases params keywo…³
-#>   <chr>      <chr> <chr> <chr> <chr> <chr>  <chr>   <chr> <chr>   <chr>  <chr>  
-#> 1 modifiers  Cont… "\nf… "\nM… "\nA… "char… "\npat… modi… "c(\"m… "c(\"… NULL   
-#> 2 str_count  Coun… "\ns… "\nC… "\nA… "char… "\nfru… str_… "NULL"  "c(\"… NULL   
-#> 3 str_interp Stri… "\ns… "\n\… "\nA… "\nSt… "\n\n#… str_… "NULL"  "c(\"… intern…
-#> 4 str_split  Spli… "\ns… "\nT… "\n\… "char… "\nfru… str_… "c(\"s… "c(\"… NULL   
-#> 5 word       Extr… "\nw… "\nE… "\nA… "char… "\nsen… word  "NULL"  "c(\"… NULL   
-#> # … with 2 more variables: seealso <chr>, format <chr>, and abbreviated
-#> #   variable names ¹​function_name, ²​examples, ³​keywords
+#>   function_name title     usage desc  value author examples name  aliases params
+#>   <chr>         <chr>     <chr> <chr> <chr> <chr>  <chr>    <chr> <chr>   <chr> 
+#> 1 modifiers     Control … "\nf… "\nM… "\nA… "char… "\npatt… modi… "c(\"m… "c(\"…
+#> 2 str_count     Count nu… "\ns… "\nC… "\nA… "char… "\nfrui… str_… "NULL"  "c(\"…
+#> 3 str_interp    String i… "\ns… "\n\… "\nA… "\nSt… "\n\n# … str_… "NULL"  "c(\"…
+#> 4 str_split     Split up… "\ns… "\nT… "\n\… "char… "\nfrui… str_… "c(\"s… "c(\"…
+#> 5 word          Extract … "\nw… "\nE… "\nA… "char… "\nsent… word  "NULL"  "c(\"…
+#> # ℹ 3 more variables: keywords <chr>, seealso <chr>, format <chr>
 ```
 
 Or search for a keyword of interest only on specific fields
@@ -99,6 +98,17 @@ search on
 ``` r
 forgot("stringr", keyword = "count", selected = c("title", "desc"),
                interactive = T)
+```
+
+### Cat a roxygen2 field of interest into your R console
+
+Here’s how you can cat (?`cat()` for more info) the parameter field,
+usage field, or example field. Try it out to see how it looks.
+
+``` r
+forgot_params("dplyr", "count")
+forgot_usage("dplyr", "count")
+forgot_exmpls("dplyr", "count")
 ```
 
 ## Credits
