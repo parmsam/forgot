@@ -28,7 +28,7 @@ test_that("forgot_fx() works", {
   expect_s3_class(forgot_fx_ex2, "tbl_df")
   expect_true(
     all(
-      names(forgot2_ex1) %in% names(
+      names(forgot_fx_ex2) %in% names(
         forgot::forgot("dplyr", "count")
       )
     )

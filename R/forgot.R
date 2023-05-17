@@ -143,12 +143,12 @@ parse_rd <- function(rd) {
 #' @param field string roxygen2 field of interest, NULL by default
 #' @param print logical on if you should print data frame, TRUE by default
 #'
-#' @return
+#' @return forgot tibble with roxygen2 field info for pkg or function
 #' @export
 #'
 #' @examples
-#' forgot_fx("dplyr", "count", "usage", print = F)
-#' forgot_fx("dplyr", "count", "usage", print = T)
+#' forgot_fx("dplyr", "count", "usage", print = FALSE)
+#' forgot_fx("dplyr", "count", "usage", print = TRUE)
 forgot_fx <- function(pkg, function_name,
                       field = NULL,
                       print = TRUE){
@@ -193,7 +193,7 @@ forgot_usg <- function(pkg, function_name){
 #' @export
 #'
 #' @examples
-#' forgot_exmpl("dplyr", "count")
+#' forgot_exmpls("dplyr", "count")
 forgot_exmpls <- function(pkg, function_name){
   f <- forgot_fx(
     pkg = {{pkg}}, {{function_name}},
@@ -219,6 +219,6 @@ forgot_params <- function(pkg, function_name){
     field = "params",
     print = FALSE)[[1]]
   f <- eval(parse(text = f))
-  cat(l, sep = "\n------\n")
+  cat(f, sep = "\n------\n")
   invisible(f)
 }
