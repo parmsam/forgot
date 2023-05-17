@@ -135,3 +135,90 @@ parse_rd <- function(rd) {
     tibble::enframe() %>%
     dplyr::mutate(function_name = out$name)
 }
+
+#' Get tibble with roxygen2 fields for a specific function of interest
+#'
+#' @param pkg string installed R package name
+#' @param function_name string function name in R package
+#' @param field string roxygen2 field of interest, NULL by default
+#' @param print logical on if you should print data frame, TRUE by default
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' forgot_fx("dplyr", "count", "usage", print = F)
+#' forgot_fx("dplyr", "count", "usage", print = T)
+forgot_fx <- function(pkg, function_name,
+                      field = NULL,
+                      print = TRUE){
+  df <- forgot::forgot(pkg) %>%
+      dplyr::filter(function_name == {{function_name}})
+  if(length(field)){
+    df <- df %>%
+      dplyr::select({{field}})
+  }
+  if(!print){
+    invisible(df)
+  } else{
+    return(df)
+  }
+}
+
+#' Print usage for an R function of interest in console
+#'
+#' @param pkg string with installed R package name
+#' @param function_name function name in R package
+#'
+#' @return NULL
+#' @export
+#'
+#' @examples
+#' forgot_usg("dplyr", "count")
+forgot_usg <- function(pkg, function_name){
+  f <- forgot_fx(
+            pkg = {{pkg}}, {{function_name}},
+            field = "usage",
+            print = FALSE)[[1]]
+  cat(f)
+  invisible(f)
+}
+
+#' Print examples for an R function of interest in console
+#'
+#' @param pkg string with installed R package name
+#' @param function_name function name in R package
+#'
+#' @return NULL
+#' @export
+#'
+#' @examples
+#' forgot_exmpl("dplyr", "count")
+forgot_exmpls <- function(pkg, function_name){
+  f <- forgot_fx(
+    pkg = {{pkg}}, {{function_name}},
+    field = "examples",
+    print = FALSE)[[1]]
+  cat(f)
+  invisible(f)
+}
+
+#' Print parameters for an R function of interest in console
+#'
+#' @param pkg string with installed R package name
+#' @param function_name function name in R package
+#'
+#' @return NULL
+#' @export
+#'
+#' @examples
+#' forgot_params("dplyr", "count")
+forgot_params <- function(pkg, function_name){
+  f <- forgot_fx(
+    pkg = {{pkg}}, {{function_name}},
+    field = "params",
+    print = FALSE)[[1]]
+  f <- eval(parse(text = f))
+  cat(l, sep = "\n------\n")
+  invisible(f)
+}
