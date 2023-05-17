@@ -45,7 +45,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">forgot_exmpls</span><span class="op">(</span><span class="va">pkg</span>, <span class="va">function_name</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">forgot_exmpls</span><span class="op">(</span><span class="va">pkg</span>, <span class="va">function_name</span>, write <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -56,6 +56,10 @@
 
 <dt>function_name</dt>
 <dd><p>function name in R package</p></dd>
+
+
+<dt>write</dt>
+<dd><p>logical write to RStudio rmd file, FALSE by default</p></dd>
 
 </dl></div>
 
@@ -103,6 +107,49 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> # mutate() instead of summarise</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> df %&gt;% add_count(gender, wt = runs)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> df %&gt;% add_tally(wt = runs)</span>
+<span class="r-in"><span><span class="fu">forgot_exmpls</span><span class="op">(</span><span class="st">"dplyr"</span>, <span class="st">"count"</span>, write <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # count() is a convenient way to get a sense of the distribution of</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # values in a dataset</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> starwars %&gt;% count(species)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> starwars %&gt;% count(species, sort = TRUE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> starwars %&gt;% count(sex, gender, sort = TRUE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> starwars %&gt;% count(birth_decade = round(birth_year, -1))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # use the `wt` argument to perform a weighted count. This is useful</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # when the data has already been aggregated once</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> df &lt;- tribble(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ~name,    ~gender,   ~runs,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "Max",    "male",       10,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "Sandra", "female",      1,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "Susan",  "female",      4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # counts rows:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> df %&gt;% count(gender)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # counts runs:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> df %&gt;% count(gender, wt = runs)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # When factors are involved, `.drop = FALSE` can be used to retain factor</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # levels that don't appear in the data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> df2 &lt;- tibble(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   id = 1:5,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   type = factor(c("a", "c", "a", NA, "a"), levels = c("a", "b", "c"))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> df2 %&gt;% count(type)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> df2 %&gt;% count(type, .drop = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # Or, using `group_by()`:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> df2 %&gt;% group_by(type, .drop = FALSE) %&gt;% count()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # tally() is a lower-level function that assumes you've done the grouping</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> starwars %&gt;% tally()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> starwars %&gt;% group_by(species) %&gt;% tally()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # both count() and tally() have add_ variants that work like</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # mutate() instead of summarise</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> df %&gt;% add_count(gender, wt = runs)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> df %&gt;% add_tally(wt = runs)</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> RStudio not running</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
