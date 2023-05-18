@@ -95,6 +95,39 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> \ifelse{html\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated\figure{lifecycle-deprecated.svgoptions: alt='[Deprecated]'}}\strong{[Deprecated]}} For \code{add_count()}: deprecated since it</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> can't actually affect the output.</span>
+<span class="r-in"><span><span class="fu">forgot_params</span><span class="op">(</span><span class="va">dplyr</span>, <span class="va">count</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> x A data frame, data frame extension (e.g. a tibble), or a</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> lazy data frame (e.g. from dbplyr or dtplyr).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ... &lt;\code{\link[rlang:args_data_masking]{data-masking}}&gt; Variables to group</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> by.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> wt &lt;\code{\link[rlang:args_data_masking]{data-masking}}&gt; Frequency weights.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Can be \code{NULL} or a variable:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \itemize{</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \item If \code{NULL} (the default), counts the number of rows in each group.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \item If a variable, computes \code{sum(wt)} for each group.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sort If \code{TRUE}, will show the largest groups at the top.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> name The name of the new column in the output.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> If omitted, it will default to \code{n}. If there's already a column called \code{n},</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> it will use \code{nn}. If there's a column called \code{n} and \code{nn}, it'll use</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \code{nnn}, and so on, adding \code{n}s until it gets a new name.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> .drop Handling of factor levels that don't appear in the data, passed</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> on to \code{\link[=group_by]{group_by()}}.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> For \code{count()}: if \code{FALSE} will include counts for empty groups (i.e. for</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> levels of factors that don't exist in the data).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \ifelse{html\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated\figure{lifecycle-deprecated.svgoptions: alt='[Deprecated]'}}\strong{[Deprecated]}} For \code{add_count()}: deprecated since it</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> can't actually affect the output.</span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu">forgot_params</span><span class="op">(</span><span class="va">dplyr</span>, <span class="va">count</span>, write <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

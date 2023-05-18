@@ -67,6 +67,160 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">forgot_usg</span><span class="op">(</span><span class="st">"dplyr"</span>, <span class="st">"count"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> across(.cols, .fns, ..., .names = NULL, .unpack = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> if_any(.cols, .fns, ..., .names = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> if_all(.cols, .fns, ..., .names = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> add_rownames(df, var = "rowname")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> all_equal(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   target,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   current,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ignore_col_order = TRUE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ignore_row_order = TRUE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   convert = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> all_vars(expr)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> any_vars(expr)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  NULL </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> arrange(.data, ..., .by_group = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \method{arrangedata.frame}(.data, ..., .by_group = FALSE, .locale = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> arrange_all(.tbl, .funs = list(), ..., .by_group = FALSE, .locale = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> arrange_at(.tbl, .vars, .funs = list(), ..., .by_group = FALSE, .locale = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> arrange_if(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .tbl,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .predicate,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .funs = list(),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .by_group = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .locale = NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> auto_copy(x, y, copy = FALSE, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_desc(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sql_translate_env(con)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_list_tables(con)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_has_table(con, table)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_data_type(con, fields)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_save_query(con, sql, name, temporary = TRUE, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_begin(con, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_commit(con, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_rollback(con, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_write_table(con, table, types, values, temporary = FALSE, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_create_table(con, table, types, temporary = FALSE, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_insert_into(con, table, values, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_create_indexes(con, table, indexes = NULL, unique = FALSE, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_create_index(con, table, columns, name = NULL, unique = FALSE, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_drop_table(con, table, force = FALSE, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_analyze(con, table, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_explain(con, sql, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_query_fields(con, sql, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_query_rows(con, sql, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sql_select(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   con,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   select,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   from,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   where = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   group_by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   having = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   order_by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   limit = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   distinct = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sql_subquery(con, from, name = random_table_name(), ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sql_join(con, x, y, vars, type = "inner", by = NULL, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sql_semi_join(con, x, y, anti = FALSE, by = NULL, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sql_set_op(con, x, y, method)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sql_escape_string(con, x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sql_escape_ident(con, x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> band_members</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> band_instruments</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> band_instruments2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> between(x, left, right)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> bind_cols(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .name_repair = c("unique", "universal", "check_unique", "minimal")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> bind_rows(..., .id = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> c_across(cols)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> case_match(.x, ..., .default = NULL, .ptype = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> case_when(..., .default = NULL, .ptype = NULL, .size = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> check_dbplyr()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> wrap_dbplyr_obj(obj_name)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coalesce(..., .ptype = NULL, .size = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> combine(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> common_by(by = NULL, x, y)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> compute(x, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> collect(x, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> collapse(x, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> consecutive_id(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> n()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cur_group()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cur_group_id()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cur_group_rows()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cur_column()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> copy_to(dest, df, name = deparse(substitute(df)), overwrite = FALSE, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> count(x, ..., wt = NULL, sort = FALSE, name = NULL)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> \method{countdata.frame}(</span>
@@ -83,6 +237,1405 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> add_count(x, ..., wt = NULL, sort = FALSE, name = NULL, .drop = deprecated())</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> add_tally(x, wt = NULL, sort = FALSE, name = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cross_join(x, y, ..., copy = FALSE, suffix = c(".x", ".y"))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cumall(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cumany(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cummean(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # Deprecated in 0.5.0 -------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> id(.variables, drop = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # Deprecated in 0.7.0 -------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> failwith(default = NULL, f, quiet = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # Deprecated in 0.8.* -------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> select_vars(vars = chr(), ..., include = chr(), exclude = chr())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rename_vars(vars = chr(), ..., strict = TRUE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> select_var(vars, var = -1)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> current_vars(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # Deprecated in 1.0.0 -------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> bench_tbls(tbls, op, ..., times = 10)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> compare_tbls(tbls, op, ref = NULL, compare = equal_data_frame, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> compare_tbls2(tbls_x, tbls_y, op, ref = NULL, compare = equal_data_frame, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> eval_tbls(tbls, op)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> eval_tbls2(tbls_x, tbls_y, op)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> location(df)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> changes(x, y)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cur_data()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cur_data_all()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> desc(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dim_desc(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> distinct(.data, ..., .keep_all = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> distinct_all(.tbl, .funs = list(), ..., .keep_all = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> distinct_at(.tbl, .vars, .funs = list(), ..., .keep_all = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> distinct_if(.tbl, .predicate, .funs = list(), ..., .keep_all = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> do(.data, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  NULL NULL NULL NULL </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dplyr_row_slice(data, i, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dplyr_col_modify(data, cols)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dplyr_reconstruct(data, template)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  NULL </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> explain(x, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> show_query(x, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> semi_join(x, y, by = NULL, copy = FALSE, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \method{semi_joindata.frame}(x, y, by = NULL, copy = FALSE, ..., na_matches = c("na", "never"))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> anti_join(x, y, by = NULL, copy = FALSE, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \method{anti_joindata.frame}(x, y, by = NULL, copy = FALSE, ..., na_matches = c("na", "never"))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> filter(.data, ..., .by = NULL, .preserve = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> filter_all(.tbl, .vars_predicate, .preserve = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> filter_if(.tbl, .predicate, .vars_predicate, .preserve = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> filter_at(.tbl, .vars, .vars_predicate, .preserve = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> funs(..., .args = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  NULL </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_by(.data, ..., .add = FALSE, .drop = group_by_drop_default(.data))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ungroup(x, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_by_all(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .tbl,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .funs = list(),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .add = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .drop = group_by_drop_default(.tbl)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_by_at(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .tbl,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .vars,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .funs = list(),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .add = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .drop = group_by_drop_default(.tbl)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_by_if(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .tbl,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .predicate,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .funs = list(),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .add = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .drop = group_by_drop_default(.tbl)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_by_drop_default(.tbl)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> distinct_prepare(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .data,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   vars,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   group_vars = character(),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .keep_all = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   caller_env = caller_env(2),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   error_call = caller_env()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_by_prepare(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .data,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .add = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .dots = deprecated(),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   add = deprecated(),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   error_call = caller_env()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_cols(vars = NULL, data = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_data(.data)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_keys(.tbl, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_rows(.data)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_indices(.data, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_vars(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> groups(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_size(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> n_groups(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_map(.data, .f, ..., .keep = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_modify(.data, .f, ..., .keep = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_walk(.data, .f, ..., .keep = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_nest(.tbl, ..., .key = "data", keep = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_split(.tbl, ..., .keep = TRUE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_trim(.tbl, .drop = group_by_drop_default(.tbl))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> grouped_df(data, vars, drop = group_by_drop_default(data))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> is.grouped_df(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> is_grouped_df(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ident(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> if_else(condition, true, false, missing = NULL, ..., ptype = NULL, size = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> join_by(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> last_dplyr_warnings(n = 5)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> lag(x, n = 1L, default = NULL, order_by = NULL, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> lead(x, n = 1L, default = NULL, order_by = NULL, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> make_tbl(subclass, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> inner_join(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   suffix = c(".x", ".y"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   keep = NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \method{inner_joindata.frame}(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   suffix = c(".x", ".y"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   keep = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   na_matches = c("na", "never"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   multiple = "all",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   unmatched = "drop",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   relationship = NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> left_join(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   suffix = c(".x", ".y"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   keep = NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \method{left_joindata.frame}(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   suffix = c(".x", ".y"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   keep = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   na_matches = c("na", "never"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   multiple = "all",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   unmatched = "drop",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   relationship = NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> right_join(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   suffix = c(".x", ".y"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   keep = NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \method{right_joindata.frame}(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   suffix = c(".x", ".y"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   keep = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   na_matches = c("na", "never"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   multiple = "all",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   unmatched = "drop",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   relationship = NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> full_join(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   suffix = c(".x", ".y"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   keep = NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \method{full_joindata.frame}(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   suffix = c(".x", ".y"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   keep = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   na_matches = c("na", "never"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   multiple = "all",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   relationship = NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> mutate(.data, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \method{mutatedata.frame}(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .data,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .keep = c("all", "used", "unused", "none"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .before = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .after = NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> mutate_all(.tbl, .funs, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> mutate_if(.tbl, .predicate, .funs, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> mutate_at(.tbl, .vars, .funs, ..., .cols = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> transmute_all(.tbl, .funs, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> transmute_if(.tbl, .predicate, .funs, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> transmute_at(.tbl, .vars, .funs, ..., .cols = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> n_distinct(..., na.rm = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> na_if(x, y)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> near(x, y, tol = .Machine$double.eps^0.5)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> nest_by(.data, ..., .key = "data", .keep = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> nest_join(x, y, by = NULL, copy = FALSE, keep = NULL, name = NULL, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \method{nest_joindata.frame}(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   keep = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   name = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   na_matches = c("na", "never"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   unmatched = "drop"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> new_grouped_df(x, groups, ..., class = character())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> validate_grouped_df(x, check_bounds = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> new_rowwise_df(data, group_data = NULL, ..., class = character())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> validate_rowwise_df(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> nth(x, n, order_by = NULL, default = NULL, na_rm = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> first(x, order_by = NULL, default = NULL, na_rm = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> last(x, order_by = NULL, default = NULL, na_rm = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ntile(x = row_number(), n)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> order_by(order_by, call)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> percent_rank(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cume_dist(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pick(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> progress_estimated(n, min_time = 0)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pull(.data, var = -1, name = NULL, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> recode(.x, ..., .default = NULL, .missing = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> recode_factor(.x, ..., .default = NULL, .missing = NULL, .ordered = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  NULL </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> reframe(.data, ..., .by = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> relocate(.data, ..., .before = NULL, .after = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rename(.data, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rename_with(.data, .fn, .cols = everything(), ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> row_number(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> min_rank(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dense_rank(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rows_insert(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   conflict = c("error", "ignore"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   in_place = FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rows_append(x, y, ..., copy = FALSE, in_place = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rows_update(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   unmatched = c("error", "ignore"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   in_place = FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rows_patch(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   unmatched = c("error", "ignore"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   in_place = FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rows_upsert(x, y, by = NULL, ..., copy = FALSE, in_place = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rows_delete(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   unmatched = c("error", "ignore"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   in_place = FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rowwise(data, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> same_src(x, y)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sample_n(tbl, size, replace = FALSE, weight = NULL, .env = NULL, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sample_frac(tbl, size = 1, replace = FALSE, weight = NULL, .env = NULL, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  NULL </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> add_count_(x, vars, wt = NULL, sort = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> add_tally_(x, wt, sort = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> arrange_(.data, ..., .dots = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> count_(x, vars, wt = NULL, sort = FALSE, .drop = group_by_drop_default(x))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> distinct_(.data, ..., .dots, .keep_all = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> do_(.data, ..., .dots = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> filter_(.data, ..., .dots = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> funs_(dots, args = list(), env = base_env())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_by_(.data, ..., .dots = list(), add = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_indices_(.data, ..., .dots = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> mutate_(.data, ..., .dots = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> tally_(x, wt, sort = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> transmute_(.data, ..., .dots = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rename_(.data, ..., .dots = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rename_vars_(vars, args)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> select_(.data, ..., .dots = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> select_vars_(vars, args, include = chr(), exclude = chr())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> slice_(.data, ..., .dots = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarise_(.data, ..., .dots = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarize_(.data, ..., .dots = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> select(.data, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> select_all(.tbl, .funs = list(), ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rename_all(.tbl, .funs = list(), ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> select_if(.tbl, .predicate, .funs = list(), ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rename_if(.tbl, .predicate, .funs = list(), ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> select_at(.tbl, .vars, .funs = list(), ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rename_at(.tbl, .vars, .funs = list(), ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> intersect(x, y, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> union(x, y, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> union_all(x, y, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> setdiff(x, y, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> setequal(x, y, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> symdiff(x, y, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> slice(.data, ..., .by = NULL, .preserve = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> slice_head(.data, ..., n, prop, by = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> slice_tail(.data, ..., n, prop, by = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> slice_min(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .data,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   order_by,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   n,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   prop,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   with_ties = TRUE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   na_rm = FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> slice_max(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .data,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   order_by,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   n,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   prop,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   with_ties = TRUE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   na_rm = FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> slice_sample(.data, ..., n, prop, by = NULL, weight_by = NULL, replace = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sql(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> src(subclass, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> is.src(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> src_mysql(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   dbname,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   host = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   port = 0L,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   username = "root",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   password = "",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> src_postgres(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   dbname = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   host = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   port = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   user = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   password = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> src_sqlite(path, create = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> src_local(tbl, pkg = NULL, env = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> src_df(pkg = NULL, env = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> src_tbls(x, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> starwars</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> storms</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarise(.data, ..., .by = NULL, .groups = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarize(.data, ..., .by = NULL, .groups = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarise_all(.tbl, .funs, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarise_if(.tbl, .predicate, .funs, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarise_at(.tbl, .vars, .funs, ..., .cols = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarize_all(.tbl, .funs, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarize_if(.tbl, .predicate, .funs, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarize_at(.tbl, .vars, .funs, ..., .cols = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarise_each(tbl, funs, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarise_each_(tbl, funs, vars)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> mutate_each(tbl, funs, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> mutate_each_(tbl, funs, vars)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarize_each(tbl, funs, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarize_each_(tbl, funs, vars)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> tbl(src, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> is.tbl(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> tbl_df(data)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> as.tbl(x, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> tbl_ptype(.data)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> tbl_vars(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> tbl_nongroup_vars(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  NULL </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> top_n(x, n, wt)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> top_frac(x, n, wt)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> transmute(.data, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> vars(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> with_groups(.data, .groups, .f, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> with_order(order_by, fun, x, ...)</span>
+<span class="r-in"><span><span class="fu">forgot_usg</span><span class="op">(</span><span class="va">dplyr</span>, <span class="va">count</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> across(.cols, .fns, ..., .names = NULL, .unpack = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> if_any(.cols, .fns, ..., .names = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> if_all(.cols, .fns, ..., .names = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> add_rownames(df, var = "rowname")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> all_equal(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   target,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   current,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ignore_col_order = TRUE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ignore_row_order = TRUE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   convert = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> all_vars(expr)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> any_vars(expr)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  NULL </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> arrange(.data, ..., .by_group = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \method{arrangedata.frame}(.data, ..., .by_group = FALSE, .locale = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> arrange_all(.tbl, .funs = list(), ..., .by_group = FALSE, .locale = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> arrange_at(.tbl, .vars, .funs = list(), ..., .by_group = FALSE, .locale = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> arrange_if(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .tbl,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .predicate,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .funs = list(),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .by_group = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .locale = NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> auto_copy(x, y, copy = FALSE, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_desc(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sql_translate_env(con)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_list_tables(con)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_has_table(con, table)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_data_type(con, fields)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_save_query(con, sql, name, temporary = TRUE, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_begin(con, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_commit(con, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_rollback(con, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_write_table(con, table, types, values, temporary = FALSE, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_create_table(con, table, types, temporary = FALSE, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_insert_into(con, table, values, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_create_indexes(con, table, indexes = NULL, unique = FALSE, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_create_index(con, table, columns, name = NULL, unique = FALSE, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_drop_table(con, table, force = FALSE, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_analyze(con, table, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_explain(con, sql, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_query_fields(con, sql, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> db_query_rows(con, sql, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sql_select(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   con,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   select,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   from,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   where = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   group_by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   having = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   order_by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   limit = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   distinct = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sql_subquery(con, from, name = random_table_name(), ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sql_join(con, x, y, vars, type = "inner", by = NULL, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sql_semi_join(con, x, y, anti = FALSE, by = NULL, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sql_set_op(con, x, y, method)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sql_escape_string(con, x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sql_escape_ident(con, x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> band_members</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> band_instruments</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> band_instruments2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> between(x, left, right)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> bind_cols(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .name_repair = c("unique", "universal", "check_unique", "minimal")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> bind_rows(..., .id = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> c_across(cols)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> case_match(.x, ..., .default = NULL, .ptype = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> case_when(..., .default = NULL, .ptype = NULL, .size = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> check_dbplyr()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> wrap_dbplyr_obj(obj_name)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coalesce(..., .ptype = NULL, .size = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> combine(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> common_by(by = NULL, x, y)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> compute(x, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> collect(x, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> collapse(x, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> consecutive_id(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> n()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cur_group()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cur_group_id()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cur_group_rows()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cur_column()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> copy_to(dest, df, name = deparse(substitute(df)), overwrite = FALSE, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> count(x, ..., wt = NULL, sort = FALSE, name = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \method{countdata.frame}(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   wt = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   sort = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   name = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .drop = group_by_drop_default(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> tally(x, wt = NULL, sort = FALSE, name = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> add_count(x, ..., wt = NULL, sort = FALSE, name = NULL, .drop = deprecated())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> add_tally(x, wt = NULL, sort = FALSE, name = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cross_join(x, y, ..., copy = FALSE, suffix = c(".x", ".y"))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cumall(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cumany(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cummean(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # Deprecated in 0.5.0 -------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> id(.variables, drop = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # Deprecated in 0.7.0 -------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> failwith(default = NULL, f, quiet = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # Deprecated in 0.8.* -------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> select_vars(vars = chr(), ..., include = chr(), exclude = chr())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rename_vars(vars = chr(), ..., strict = TRUE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> select_var(vars, var = -1)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> current_vars(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # Deprecated in 1.0.0 -------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> bench_tbls(tbls, op, ..., times = 10)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> compare_tbls(tbls, op, ref = NULL, compare = equal_data_frame, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> compare_tbls2(tbls_x, tbls_y, op, ref = NULL, compare = equal_data_frame, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> eval_tbls(tbls, op)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> eval_tbls2(tbls_x, tbls_y, op)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> location(df)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> changes(x, y)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cur_data()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cur_data_all()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> desc(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dim_desc(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> distinct(.data, ..., .keep_all = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> distinct_all(.tbl, .funs = list(), ..., .keep_all = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> distinct_at(.tbl, .vars, .funs = list(), ..., .keep_all = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> distinct_if(.tbl, .predicate, .funs = list(), ..., .keep_all = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> do(.data, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  NULL NULL NULL NULL </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dplyr_row_slice(data, i, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dplyr_col_modify(data, cols)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dplyr_reconstruct(data, template)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  NULL </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> explain(x, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> show_query(x, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> semi_join(x, y, by = NULL, copy = FALSE, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \method{semi_joindata.frame}(x, y, by = NULL, copy = FALSE, ..., na_matches = c("na", "never"))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> anti_join(x, y, by = NULL, copy = FALSE, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \method{anti_joindata.frame}(x, y, by = NULL, copy = FALSE, ..., na_matches = c("na", "never"))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> filter(.data, ..., .by = NULL, .preserve = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> filter_all(.tbl, .vars_predicate, .preserve = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> filter_if(.tbl, .predicate, .vars_predicate, .preserve = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> filter_at(.tbl, .vars, .vars_predicate, .preserve = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> funs(..., .args = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  NULL </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_by(.data, ..., .add = FALSE, .drop = group_by_drop_default(.data))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ungroup(x, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_by_all(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .tbl,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .funs = list(),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .add = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .drop = group_by_drop_default(.tbl)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_by_at(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .tbl,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .vars,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .funs = list(),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .add = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .drop = group_by_drop_default(.tbl)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_by_if(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .tbl,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .predicate,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .funs = list(),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .add = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .drop = group_by_drop_default(.tbl)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_by_drop_default(.tbl)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> distinct_prepare(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .data,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   vars,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   group_vars = character(),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .keep_all = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   caller_env = caller_env(2),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   error_call = caller_env()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_by_prepare(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .data,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .add = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .dots = deprecated(),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   add = deprecated(),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   error_call = caller_env()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_cols(vars = NULL, data = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_data(.data)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_keys(.tbl, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_rows(.data)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_indices(.data, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_vars(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> groups(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_size(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> n_groups(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_map(.data, .f, ..., .keep = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_modify(.data, .f, ..., .keep = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_walk(.data, .f, ..., .keep = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_nest(.tbl, ..., .key = "data", keep = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_split(.tbl, ..., .keep = TRUE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_trim(.tbl, .drop = group_by_drop_default(.tbl))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> grouped_df(data, vars, drop = group_by_drop_default(data))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> is.grouped_df(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> is_grouped_df(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ident(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> if_else(condition, true, false, missing = NULL, ..., ptype = NULL, size = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> join_by(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> last_dplyr_warnings(n = 5)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> lag(x, n = 1L, default = NULL, order_by = NULL, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> lead(x, n = 1L, default = NULL, order_by = NULL, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> make_tbl(subclass, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> inner_join(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   suffix = c(".x", ".y"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   keep = NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \method{inner_joindata.frame}(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   suffix = c(".x", ".y"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   keep = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   na_matches = c("na", "never"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   multiple = "all",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   unmatched = "drop",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   relationship = NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> left_join(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   suffix = c(".x", ".y"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   keep = NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \method{left_joindata.frame}(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   suffix = c(".x", ".y"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   keep = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   na_matches = c("na", "never"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   multiple = "all",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   unmatched = "drop",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   relationship = NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> right_join(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   suffix = c(".x", ".y"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   keep = NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \method{right_joindata.frame}(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   suffix = c(".x", ".y"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   keep = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   na_matches = c("na", "never"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   multiple = "all",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   unmatched = "drop",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   relationship = NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> full_join(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   suffix = c(".x", ".y"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   keep = NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \method{full_joindata.frame}(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   suffix = c(".x", ".y"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   keep = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   na_matches = c("na", "never"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   multiple = "all",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   relationship = NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> mutate(.data, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \method{mutatedata.frame}(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .data,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .keep = c("all", "used", "unused", "none"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .before = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .after = NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> mutate_all(.tbl, .funs, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> mutate_if(.tbl, .predicate, .funs, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> mutate_at(.tbl, .vars, .funs, ..., .cols = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> transmute_all(.tbl, .funs, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> transmute_if(.tbl, .predicate, .funs, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> transmute_at(.tbl, .vars, .funs, ..., .cols = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> n_distinct(..., na.rm = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> na_if(x, y)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> near(x, y, tol = .Machine$double.eps^0.5)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> nest_by(.data, ..., .key = "data", .keep = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> nest_join(x, y, by = NULL, copy = FALSE, keep = NULL, name = NULL, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> \method{nest_joindata.frame}(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   keep = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   name = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   na_matches = c("na", "never"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   unmatched = "drop"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> new_grouped_df(x, groups, ..., class = character())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> validate_grouped_df(x, check_bounds = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> new_rowwise_df(data, group_data = NULL, ..., class = character())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> validate_rowwise_df(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> nth(x, n, order_by = NULL, default = NULL, na_rm = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> first(x, order_by = NULL, default = NULL, na_rm = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> last(x, order_by = NULL, default = NULL, na_rm = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ntile(x = row_number(), n)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> order_by(order_by, call)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> percent_rank(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cume_dist(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pick(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> progress_estimated(n, min_time = 0)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pull(.data, var = -1, name = NULL, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> recode(.x, ..., .default = NULL, .missing = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> recode_factor(.x, ..., .default = NULL, .missing = NULL, .ordered = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  NULL </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> reframe(.data, ..., .by = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> relocate(.data, ..., .before = NULL, .after = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rename(.data, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rename_with(.data, .fn, .cols = everything(), ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> row_number(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> min_rank(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dense_rank(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rows_insert(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   conflict = c("error", "ignore"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   in_place = FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rows_append(x, y, ..., copy = FALSE, in_place = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rows_update(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   unmatched = c("error", "ignore"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   in_place = FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rows_patch(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   unmatched = c("error", "ignore"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   in_place = FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rows_upsert(x, y, by = NULL, ..., copy = FALSE, in_place = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rows_delete(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   x,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   y,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   unmatched = c("error", "ignore"),</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   copy = FALSE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   in_place = FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rowwise(data, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> same_src(x, y)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sample_n(tbl, size, replace = FALSE, weight = NULL, .env = NULL, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sample_frac(tbl, size = 1, replace = FALSE, weight = NULL, .env = NULL, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  NULL </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> add_count_(x, vars, wt = NULL, sort = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> add_tally_(x, wt, sort = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> arrange_(.data, ..., .dots = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> count_(x, vars, wt = NULL, sort = FALSE, .drop = group_by_drop_default(x))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> distinct_(.data, ..., .dots, .keep_all = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> do_(.data, ..., .dots = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> filter_(.data, ..., .dots = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> funs_(dots, args = list(), env = base_env())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_by_(.data, ..., .dots = list(), add = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> group_indices_(.data, ..., .dots = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> mutate_(.data, ..., .dots = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> tally_(x, wt, sort = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> transmute_(.data, ..., .dots = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rename_(.data, ..., .dots = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rename_vars_(vars, args)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> select_(.data, ..., .dots = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> select_vars_(vars, args, include = chr(), exclude = chr())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> slice_(.data, ..., .dots = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarise_(.data, ..., .dots = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarize_(.data, ..., .dots = list())</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> select(.data, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> select_all(.tbl, .funs = list(), ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rename_all(.tbl, .funs = list(), ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> select_if(.tbl, .predicate, .funs = list(), ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rename_if(.tbl, .predicate, .funs = list(), ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> select_at(.tbl, .vars, .funs = list(), ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rename_at(.tbl, .vars, .funs = list(), ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> intersect(x, y, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> union(x, y, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> union_all(x, y, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> setdiff(x, y, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> setequal(x, y, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> symdiff(x, y, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> slice(.data, ..., .by = NULL, .preserve = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> slice_head(.data, ..., n, prop, by = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> slice_tail(.data, ..., n, prop, by = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> slice_min(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .data,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   order_by,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   n,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   prop,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   with_ties = TRUE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   na_rm = FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> slice_max(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   .data,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   order_by,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   n,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   prop,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   by = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   with_ties = TRUE,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   na_rm = FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> slice_sample(.data, ..., n, prop, by = NULL, weight_by = NULL, replace = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> sql(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> src(subclass, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> is.src(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> src_mysql(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   dbname,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   host = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   port = 0L,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   username = "root",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   password = "",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> src_postgres(</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   dbname = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   host = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   port = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   user = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   password = NULL,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> src_sqlite(path, create = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> src_local(tbl, pkg = NULL, env = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> src_df(pkg = NULL, env = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> src_tbls(x, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> starwars</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> storms</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarise(.data, ..., .by = NULL, .groups = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarize(.data, ..., .by = NULL, .groups = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarise_all(.tbl, .funs, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarise_if(.tbl, .predicate, .funs, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarise_at(.tbl, .vars, .funs, ..., .cols = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarize_all(.tbl, .funs, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarize_if(.tbl, .predicate, .funs, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarize_at(.tbl, .vars, .funs, ..., .cols = NULL)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarise_each(tbl, funs, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarise_each_(tbl, funs, vars)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> mutate_each(tbl, funs, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> mutate_each_(tbl, funs, vars)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarize_each(tbl, funs, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> summarize_each_(tbl, funs, vars)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> tbl(src, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> is.tbl(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> tbl_df(data)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> as.tbl(x, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> tbl_ptype(.data)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> tbl_vars(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> tbl_nongroup_vars(x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  NULL </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> top_n(x, n, wt)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> top_frac(x, n, wt)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> transmute(.data, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> vars(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> with_groups(.data, .groups, .f, ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> with_order(order_by, fun, x, ...)</span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu">forgot_usg</span><span class="op">(</span><span class="va">dplyr</span>, <span class="va">count</span>, write <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
