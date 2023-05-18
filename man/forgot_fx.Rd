@@ -23,5 +23,6 @@ Get tibble with roxygen2 fields for a specific function of interest
 }
 \examples{
 forgot_fx("dplyr", "count", "usage", print = FALSE)
+forgot_fx(dplyr, "count", "usage", print = TRUE)
 forgot_fx("dplyr", "count", "usage", print = TRUE)
 }

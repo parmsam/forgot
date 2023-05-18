@@ -26,4 +26,5 @@ Retrieve tibble with function documentation for a specified package
 \examples{
 forgot::forgot("stringr")
 forgot::forgot("dplyr", "count")
+forgot::forgot(dplyr, "count")
 }

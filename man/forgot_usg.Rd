@@ -18,4 +18,8 @@ Print usage for an R function of interest in console
 }
 \examples{
 forgot_usg("dplyr", "count")
+forgot_usg(dplyr, count)
+\dontrun{
+forgot_usg(dplyr, count, write = TRUE)
+}
 }

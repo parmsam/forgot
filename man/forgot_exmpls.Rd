@@ -18,5 +18,8 @@ Print examples for an R function of interest in console
 }
 \examples{
 forgot_exmpls("dplyr", "count")
+forgot_exmpls(dplyr, count, write = FALSE)
+\dontrun{
 forgot_exmpls("dplyr", "count", write = TRUE)
+}
 }

@@ -21,5 +21,7 @@ Get forgot tibble with only first two fields populated by default
 }
 \examples{
 forgot2("stringr")
+forgot2(stringr)
 forgot2("dplyr", "count")
+forgot2(dplyr, "count")
 }

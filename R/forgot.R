@@ -19,11 +19,16 @@
 #' @examples
 #' forgot::forgot("stringr")
 #' forgot::forgot("dplyr", "count")
+#' forgot::forgot(dplyr, "count")
 forgot <- function(pkg,
                    keyword = NULL,
                    selected = NULL,
                    formatted = T,
                    interactive = F) {
+  if (tryCatch(!is.character(pkg), error = function(e) TRUE)){
+    pkg <- deparse(substitute(pkg))
+  }
+
   db <- tools::Rd_db(package = pkg)
   n <- names(db)
   df <- purrr::map_df(db, parse_rd) %>%
@@ -64,13 +69,18 @@ forgot <- function(pkg,
 #'
 #' @examples
 #' forgot2("stringr")
+#' forgot2(stringr)
 #' forgot2("dplyr", "count")
+#' forgot2(dplyr, "count")
 forgot2 <- function(pkg,
                     keyword = NULL,
                     selected = c()
                     ){
+  if (tryCatch(!is.character(pkg), error = function(e) TRUE)){
+    pkg <- deparse(substitute(pkg))
+  }
   selected_fields <- c("function_name", "title", selected)
-  forgot(pkg,
+  forgot(pkg = pkg,
          keyword = keyword,
          selected = selected_fields,
          interactive = F)
@@ -148,12 +158,16 @@ parse_rd <- function(rd) {
 #'
 #' @examples
 #' forgot_fx("dplyr", "count", "usage", print = FALSE)
+#' forgot_fx(dplyr, "count", "usage", print = TRUE)
 #' forgot_fx("dplyr", "count", "usage", print = TRUE)
 forgot_fx <- function(pkg, function_name,
                       field = NULL,
                       print = TRUE){
+  if (tryCatch(!is.character(pkg), error = function(e) TRUE)){
+    pkg <- deparse(substitute(pkg))
+  }
   df <- forgot::forgot(pkg) %>%
-      dplyr::filter(function_name == {{function_name}})
+    dplyr::filter(function_name == {{function_name}})
   if(length(field)){
     df <- df %>%
       dplyr::select({{field}})
@@ -176,13 +190,26 @@ forgot_fx <- function(pkg, function_name,
 #'
 #' @examples
 #' forgot_usg("dplyr", "count")
+#' forgot_usg(dplyr, count)
+#' \dontrun{
+#' forgot_usg(dplyr, count, write = TRUE)
+#' }
 forgot_usg <- function(pkg, function_name,
                        write = FALSE){
+  if (tryCatch(!is.character(pkg), error = function(e) TRUE)){
+    pkg <- deparse(substitute(pkg))
+  }
+  if (tryCatch(!is.character(function_name), error = function(e) TRUE)){
+    function_name <- deparse(substitute(function_name))
+  }
   f <- forgot_fx(
-            pkg = {{pkg}}, {{function_name}},
-            field = "usage",
-            print = FALSE)[[1]]
+    pkg = pkg, function_name,
+    field = "usage",
+    print = FALSE)[[1]]
   cat(f)
+  if(write){
+    new_file_write(f)
+  }
   invisible(f)
 }
 
@@ -197,11 +224,20 @@ forgot_usg <- function(pkg, function_name,
 #'
 #' @examples
 #' forgot_exmpls("dplyr", "count")
+#' forgot_exmpls(dplyr, count, write = FALSE)
+#' \dontrun{
 #' forgot_exmpls("dplyr", "count", write = TRUE)
+#' }
 forgot_exmpls <- function(pkg, function_name,
                           write = FALSE){
+  if (tryCatch(!is.character(pkg), error = function(e) TRUE)){
+    pkg <- deparse(substitute(pkg))
+  }
+  if (tryCatch(!is.character(function_name), error = function(e) TRUE)){
+    function_name <- deparse(substitute(function_name))
+  }
   f <- forgot_fx(
-    pkg = {{pkg}}, {{function_name}},
+    pkg = pkg, function_name,
     field = "examples",
     print = FALSE)[[1]]
   cat(f)
@@ -222,8 +258,18 @@ forgot_exmpls <- function(pkg, function_name,
 #'
 #' @examples
 #' forgot_params("dplyr", "count")
+#' forgot_params(dplyr, count)
+#' \dontrun{
+#' forgot_params(dplyr, count, write = TRUE)
+#' }
 forgot_params <- function(pkg, function_name,
                           write = FALSE){
+  if (tryCatch(!is.character(pkg), error = function(e) TRUE)){
+    pkg <- deparse(substitute(pkg))
+  }
+  if (tryCatch(!is.character(function_name), error = function(e) TRUE)){
+    function_name <- deparse(substitute(function_name))
+  }
   f <- forgot_fx(
     pkg = {{pkg}}, {{function_name}},
     field = "params",

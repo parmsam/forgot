@@ -18,4 +18,8 @@ Print parameters for an R function of interest in console
 }
 \examples{
 forgot_params("dplyr", "count")
+forgot_params(dplyr, count)
+\dontrun{
+forgot_params(dplyr, count, write = TRUE)
+}
 }
