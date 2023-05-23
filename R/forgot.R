@@ -290,3 +290,37 @@ forgot_params <- function(pkg, function_name,
 new_file_write <- function(content, type = "rmarkdown"){
   rstudioapi::documentNew(text = content, type = type)
 }
+
+#' %f2%
+#'
+#' @examples
+#' `%f2%`("stringr")
+#' stringr %f2%
+#' "dplyr" %f2% "count"
+#' dplyr %f2% "count"
+#' @export
+`%f2%` <- forgot2
+
+#' %fu%
+#'
+#' @examples
+#' "dplyr" %fu% "count"
+#' dplyr %fu% count
+#' @export
+`%fu%` <- forgot_usg
+
+#' %fe%
+#'
+#' @examples
+#' "dplyr" %fe% "count"
+#' dplyr %fe% count
+#' @export
+`%fe%` <- forgot_exmpls
+
+#' %fp%
+#'
+#' @examples
+#' "dplyr" %fp% "count"
+#' dplyr %fp% count
+#' @export
+`%fp%` <- forgot_params
