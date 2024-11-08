@@ -203,7 +203,8 @@ forgot_usg <- function(pkg, function_name,
     function_name <- deparse(substitute(function_name))
   }
   f <- forgot_fx(
-    pkg = pkg, function_name,
+    pkg = {{pkg}},
+    function_name = {{function_name}},
     field = "usage",
     print = FALSE)[[1]]
   cat(f)
@@ -237,7 +238,8 @@ forgot_exmpls <- function(pkg, function_name,
     function_name <- deparse(substitute(function_name))
   }
   f <- forgot_fx(
-    pkg = pkg, function_name,
+    pkg = {{pkg}},
+    function_name = {{function_name}},
     field = "examples",
     print = FALSE)[[1]]
   cat(f)
@@ -271,7 +273,8 @@ forgot_params <- function(pkg, function_name,
     function_name <- deparse(substitute(function_name))
   }
   f <- forgot_fx(
-    pkg = {{pkg}}, {{function_name}},
+    pkg = {{pkg}},
+    function_name = {{function_name}},
     field = "params",
     print = FALSE)[[1]]
   f <- eval(parse(text = f))
