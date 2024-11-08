@@ -1,7 +1,7 @@
 Package: forgot
 Type: Package
 Title: Function Reference Search In Console
-Version: 0.1.0
+Version: 0.1.1
 Author: Sam Parmar
 Maintainer: Sam Parmar <yourself@somewhere.net>
 Description: Search for that one function you need in that one package.

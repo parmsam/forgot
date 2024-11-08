@@ -1,3 +1,9 @@
+# forgot 0.1.1
+
+* Fixed bug in `forgot_exmpls()` where the function was not running `filter_fx()` correctly
+* Similar bug fix for `forgot_usg()`
+* Updated readme with shortcut functions
+
 # forgot 0.1.0
 
 * Added a `NEWS.md` file to track changes to the package.

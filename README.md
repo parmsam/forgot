@@ -107,13 +107,38 @@ usage field, or example field. Try it out to see how it looks.
 
 ``` r
 forgot_params("dplyr", "count")
-forgot_usage("dplyr", "count")
+forgot_usg("dplyr", "count")
 forgot_exmpls("dplyr", "count")
 ```
 
 The write logical (see `forgot_exmpls()` documentation for example)
 argument will create a new RStudio document with the roxygen2 field
 content of interest that was cat.
+
+### Shortcuts
+
+You can also use some shortcut operators to get the same results as
+above.
+
+``` r
+# shortcut for forgot2
+"dplyr" %f2% "count"
+## OR
+dplyr %f2% "count"
+# shortcut for forgot_usg
+"dplyr" %fu% "count"
+## OR
+dplyr %fu% count
+# shortcut for forgot_exmpls
+"dplyr" %fe% "count"
+## OR
+dplyr %fe% count
+
+# shortcut for forgot_params
+"dplyr" %fp% "count"
+## OR
+dplyr %fp% count
+```
 
 ## Credits
 
